@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AutoJsonRpcServiceImpl
@@ -33,5 +34,10 @@ public class StudentApiImpl implements StudentApi {
     @Override
     public List<StudentModel> query() {
         return studentDao.findAll();
+    }
+
+    @Override
+    public Optional<StudentModel> queryById(int id) {
+        return studentDao.findById(id+"");
     }
 }
